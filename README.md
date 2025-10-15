@@ -44,7 +44,7 @@
 
 1.  **Κλωνοποιήστε το Repository:**
     ```powershell
-    git clone <URL_TO_YOUR_REPO> $env:LOCALAPPDATA\nvim
+    git clone https://github.com/HellasDev/Neovim.git $env:LOCALAPPDATA\nvim
     ```
     (Αν υπάρχει ήδη φάκελος `nvim` στο `%LOCALAPPDATA%`, μετονομάστε τον πρώτα).
 
