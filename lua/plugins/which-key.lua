@@ -11,7 +11,7 @@ return {
     wk.add({
       { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Εξερευνητής" },
       { "<leader>f", group = "Αρχείο" },
-      { "<leader>fs", ":w<CR>", desc = "Αποθήκευση" },
+      { "<leader>w", ":w<CR>", desc = "Αποθήκευση" },
       { "<leader>c", group = "Κώδικας" },
       { "<leader>cf", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "Format" },
       { "<leader>d", group = "Διάγνωση" },
@@ -22,6 +22,24 @@ return {
       { "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Εύρεση Κειμένου" },
       { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Εύρεση σε Buffers" },
       { "<leader>so", "<cmd>Telescope oldfiles<cr>", desc = "Πρόσφατα Αρχεία" },
+      -- Git Group
+      { "<leader>g", group = "Git" },
+      { "<leader>gs", function() require("gitsigns").stage_hunk() end, desc = "Stage Hunk" },
+      { "<leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset Hunk" },
+      { "<leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview Hunk" },
+      { "<leader>gb", function() require("gitsigns").blame_line() end, desc = "Blame Line" },
+      { "[g", function() require("gitsigns").prev_hunk() end, desc = "Prev Hunk" },
+      { "]g", function() require("gitsigns").next_hunk() end, desc = "Next Hunk" },
+      -- Options Group
+      { "<leader>o", group = "Επιλογές" },
+      { "<leader>op", _G.KanagawaToggleTheme, desc = "Εναλλαγή Θέματος" },
+      -- New Keymaps
+      { "<leader>a", group = "Ενέργειες" }, -- New group for general actions
+      { "<leader>aa", "ggVG", desc = "Επιλογή Όλων" },
+      { "<leader>q", ":bwipeout<CR>", desc = "Κλείσιμο Buffer" },
+      { "<leader>sp", group = "Splits" }, -- New group for splits
+      { "<leader>v", ":vsplit<CR>", desc = "Κάθετο Split" },
+      { "<leader>h", ":split<CR>", desc = "Οριζόντιος Split" },
     })
   end,
 }
