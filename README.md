@@ -4,18 +4,22 @@
 
 ## Βασικά Χαρακτηριστικά
 
-*   **LSP (Language Server Protocol):** Πλήρης υποστήριξη για auto-completion, diagnostics, go-to-definition, κ.λπ. για JavaScript, TypeScript, HTML, CSS, JSON, Go και Lua.
+*   **LSP (Language Server Protocol):** Πλήρης υποστήριξη για auto-completion, diagnostics, go-to-definition, κ.λπ. για JavaScript, TypeScript, HTML, CSS, JSON, Go και Lua. Περιλαμβάνει προχωρημένες ρυθμίσεις για `gopls`.
 *   **Telescope:** Πανίσχυρο "fuzzy finder" για γρήγορη αναζήτηση αρχείων, κειμένου και buffers.
-*   **Tree-sitter:** Ακριβές και λεπτομερές syntax highlighting.
+*   **Tree-sitter:** Ακριβές και λεπτομερές syntax highlighting (αναμένεται εγκατάσταση).
 *   **UI Enhancements:**
-    *   `kanagawa` colorscheme.
+    *   `kanagawa` colorscheme με εναλλαγή `wave`/`lotus`.
     *   `lualine.nvim` για μοντέρνα status bar.
     *   `mini.icons` για εικονίδια αρχείων.
     *   `noice.nvim` για βελτιωμένη εμφάνιση μηνυμάτων και command line.
-    *   `which-key.nvim` για διαδραστικό μενού συντομεύσεων στα Ελληνικά.
-    *   `neo-tree.nvim` ως file explorer με Git status και εμφάνιση κρυφών αρχείων.
-*   **Terminal:** Ενσωματωμένο αιωρούμενο terminal (`toggleterm.nvim`) με PowerShell.
-*   **Formatting:** Ενσωματωμένο code formatting με `conform.nvim` (απαιτεί εξωτερικούς formatters όπως Prettier).
+    *   `which-key.nvim` για διαδραστικό μενού συντομεύσεων στα Ελληνικά, με στρογγυλεμένο περίγραμμα.
+    *   `neo-tree.nvim` ως file explorer με Git status, εμφάνιση κρυφών αρχείων και diagnostics.
+    *   `hlchunk.nvim` για οπτική επισήμανση μπλοκ κώδικα.
+    *   `nvim-colorizer.lua` για εμφάνιση χρωμάτων απευθείας στον κώδικα.
+    *   `render-markdown.nvim` για όμορφο rendering αρχείων Markdown.
+*   **Terminal:** Ενσωματωμένο αιωρούμενο terminal (`toggleterm.nvim`) με PowerShell, στρογγυλεμένο περίγραμμα, μέγεθος 50% και `persist_mode = true`.
+*   **Formatting:** Ενσωματωμένο code formatting με `conform.nvim` (αυτόματο format on save, απαιτεί εξωτερικούς formatters όπως Prettier, Stylua, Gofumpt).
+*   **Git Integration:** `gitsigns.nvim` για οπτικές ενδείξεις Git στο gutter και διαχείριση hunks.
 *   **Session Management:** Αυτόματη αποθήκευση/επαναφορά συνεδριών με `auto-session`.
 *   **Persistent Undo:** Αποθήκευση ιστορικού αλλαγών.
 *   **Ελληνικές Περιγραφές:** Όλες οι συντομεύσεις στο `which-key` είναι στα Ελληνικά.
@@ -26,10 +30,10 @@
 
 *   **Git for Windows:** Απαραίτητο για τη διαχείριση του κώδικα και των plugins.
     *   [Download Git](https://git-scm.com/download/win)
-*   **Node.js & npm:** Απαιτείται για το Mason (διαχείριση LSP servers/formatters) και ορισμένα plugins.
+*   **Node.js & npm:** Απαιτείται για το Mason (διαχείριση LSP servers/formatters) και ορισμένα plugins (π.χ. `live-server`).
     *   [Download Node.js](https://nodejs.org/en/download/)
 *   **C Compiler (MinGW/WinLibs):** Απαραίτητο για το Tree-sitter και ορισμένα plugins (π.χ. `telescope-fzf-native`).
-    *   Εκτελέστε την εντολή στο PowerShell/CMD:
+    *   Εκτελέστε την εντομή στο PowerShell/CMD:
         ```powershell
         winget install --id=BrechtSanders.WinLibs.POSIX.UCRT -e
         ```
@@ -54,7 +58,12 @@
     *   Το `Mason` θα εγκαταστήσει αυτόματα τους Language Servers και τους formatters που έχουμε ορίσει.
     *   Το `nvim-treesitter` θα κατεβάσει και θα κάνει compile τους parsers.
 
-3.  **Ενημέρωση Parsers (Προαιρετικό):**
+3.  **Εγκατάσταση Formatters (μέσω Mason):**
+    Για να λειτουργήσει το format on save, βεβαιωθείτε ότι έχετε εγκαταστήσει τους formatters για τις γλώσσες σας:
+    *   Ανοίξτε το Neovim και εκτελέστε `:Mason`.
+    *   Βρείτε και εγκαταστήστε `prettier` (για web), `stylua` (για Lua), `gofumpt` (για Go).
+
+4.  **Ενημέρωση Parsers (μέσω Neovim):**
     Αν θέλετε να ενημερώσετε τους parsers του Tree-sitter, εκτελέστε μέσα στο Neovim:
     ```vim
     :TSUpdate
@@ -67,6 +76,7 @@
 *   **`Ctrl + h/j/k/l`:** Πλοήγηση μεταξύ των παραθύρων.
 *   **`Shift + h/l` ή `Shift + Αριστερό/Δεξί Βέλος`:** Πλοήγηση μεταξύ των tabs (buffers).
 *   **`Space + e`:** Ανοίγει/κλείνει τον File Explorer (`neo-tree`).
+*   **`Space + w`:** Αποθηκεύει το αρχείο.
 *   **`Space + s`:** Μενού αναζήτησης (Telescope).
     *   `Space + s + f`: Εύρεση αρχείων.
     *   `Space + s + t`: Εύρεση κειμένου.
@@ -74,8 +84,24 @@
     *   `Space + s + o`: Εύρεση πρόσφατων αρχείων.
 *   **`Space + c`:** Μενού για λειτουργίες κώδικα (LSP).
     *   `Space + c + f`: Μορφοποίηση κώδικα.
+*   **`Space + g`:** Μενού για λειτουργίες Git (`gitsigns`).
+    *   `Space + g + s`: Stage Hunk.
+    *   `Space + g + r`: Reset Hunk.
+    *   `Space + g + p`: Preview Hunk.
+    *   `Space + g + b`: Blame Line.
+    *   `[g` / `]g`: Πλοήγηση σε hunks.
+*   **`Space + o`:** Μενού για Επιλογές.
+    *   `Space + o + p`: Εναλλαγή Θέματος.
+*   **`Space + a`:** Μενού για Ενέργειες.
+    *   `Space + a + a`: Επιλογή Όλων.
+    *   `Space + q`: Κλείσιμο Buffer.
+    *   `Space + ss`: Αντικατάσταση Λέξης.
+*   **`Space + sp`:** Μενού για Splits.
+    *   `Space + s + v`: Κάθετο Split.
+    *   `Space + s + h`: Οριζόντιος Split.
 *   **`gd`:** Go to definition.
 *   **`K`:** Hover (πληροφορίες για το σύμβολο).
+*   **`[d` / `]d`:** Πλοήγηση σε diagnostics.
 
 ---
 
