@@ -10,7 +10,7 @@ api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({
       higroup = "IncSearch", -- Highlight group to use
-      timeout = 200, -- Duration in milliseconds
+      timeout = 200,         -- Duration in milliseconds
     })
   end,
 })
@@ -27,4 +27,15 @@ api.nvim_create_autocmd("BufReadPost", {
       api.nvim_win_set_cursor(0, { line, col })
     end
   end,
+})
+
+-- Αυτόματο save όταν βγαίνεις από Insert mode
+api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",            -- Ισχύει για όλα τα αρχεία
+  callback = function()
+    if vim.bo.modified then -- Μόνο αν υπάρχουν αλλαγές
+      vim.cmd("write")
+    end
+  end,
+  desc = "Αυτόματο save όταν βγαίνεις από Insert mode"
 })
