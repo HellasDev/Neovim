@@ -1,6 +1,6 @@
-# Neovim Configuration για Windows
+# Neovim Configuration
 
-Αυτό το repository περιέχει την προσωπική μου παραμετροποίηση του Neovim, ειδικά προσαρμοσμένη για περιβάλλον Windows. Στόχος είναι ένα γρήγορο, μοντέρνο και πλήρως λειτουργικό IDE για web development και Go, με έμφαση στην παραγωγικότητα και την ευκολία χρήσης.
+Αυτό το repository περιέχει την προσωπική μου παραμετροποίηση του Neovim για Windows και Arch Linux. Στόχος είναι ένα γρήγορο, μοντέρνο και πλήρως λειτουργικό IDE για web development και Go, με έμφαση στην παραγωγικότητα και την ευκολία χρήσης.
 
 ## Βασικά Χαρακτηριστικά
 
@@ -26,6 +26,8 @@
 
 ## Απαιτούμενες Εξαρτήσεις (Εκτός Neovim)
 
+### Windows
+
 Πριν κλωνοποιήσετε αυτό το repository, βεβαιωθείτε ότι έχετε εγκαταστήσει τα παρακάτω στο σύστημά σας:
 
 *   **Git for Windows:** Απαραίτητο για τη διαχείριση του κώδικα και των plugins.
@@ -33,7 +35,7 @@
 *   **Node.js & npm:** Απαιτείται για το Mason (διαχείριση LSP servers/formatters) και ορισμένα plugins (π.χ. `live-server`).
     *   [Download Node.js](https://nodejs.org/en/download/)
 *   **C Compiler (MinGW/WinLibs):** Απαραίτητο για το Tree-sitter και ορισμένα plugins (π.χ. `telescope-fzf-native`).
-    *   Εκτελέστε την εντομή στο PowerShell/CMD:
+    *   Εκτελέστε την εντολή στο PowerShell/CMD:
         ```powershell
         winget install --id=BrechtSanders.WinLibs.POSIX.UCRT -e
         ```
@@ -44,13 +46,56 @@
 *   **Nerd Font:** Για να εμφανίζονται σωστά τα εικονίδια.
     *   [Download Nerd Fonts](https://www.nerdfonts.com/font-downloads) (Προτείνεται η JetBrains Mono Nerd Font). Μετά την εγκατάσταση, ρυθμίστε το τερματικό σας (π.χ. Windows Terminal) να τη χρησιμοποιεί.
 
+### Arch Linux
+
+Εγκαταστήστε τις απαραίτητες εξαρτήσεις μέσω του `pacman` και `yay`/`paru`:
+
+```bash
+# Βασικά πακέτα
+sudo pacman -S git neovim nodejs npm gcc fzf ripgrep
+
+# Nerd Font (JetBrains Mono)
+yay -S ttf-jetbrains-mono-nerd
+# ή
+paru -S ttf-jetbrains-mono-nerd
+```
+
+**Σημείωση:** Μετά την εγκατάσταση του Nerd Font, ρυθμίστε το τερματικό σας (π.χ. Alacritty, Kitty, GNOME Terminal) να χρησιμοποιεί το `JetBrainsMono Nerd Font`.
+
 ## Εγκατάσταση της Παραμετροποίησης
+
+### Windows
 
 1.  **Κλωνοποιήστε το Repository:**
     ```powershell
     git clone https://github.com/HellasDev/Neovim.git $env:LOCALAPPDATA\nvim
     ```
     (Αν υπάρχει ήδη φάκελος `nvim` στο `%LOCALAPPDATA%`, μετονομάστε τον πρώτα).
+
+2.  **Πρώτη Εκκίνηση του Neovim:**
+    Ανοίξτε το Neovim πληκτρολογώντας `nvim` στο τερματικό.
+    *   Το `lazy.nvim` θα ξεκινήσει αυτόματα την εγκατάσταση όλων των plugins. Αυτό θα πάρει λίγο χρόνο.
+    *   Το `Mason` θα εγκαταστήσει αυτόματα τους Language Servers και τους formatters που έχουμε ορίσει.
+    *   Το `nvim-treesitter` θα κατεβάσει και θα κάνει compile τους parsers.
+
+3.  **Εγκατάσταση Formatters (μέσω Mason):**
+    Για να λειτουργήσει το format on save, βεβαιωθείτε ότι έχετε εγκαταστήσει τους formatters για τις γλώσσες σας:
+    *   Ανοίξτε το Neovim και εκτελέστε `:Mason`.
+    *   Βρείτε και εγκαταστήστε `prettier` (για web), `stylua` (για Lua), `gofumpt` (για Go).
+
+4.  **Ενημέρωση Parsers (μέσω Neovim):**
+    Αν θέλετε να ενημερώσετε τους parsers του Tree-sitter, εκτελέστε μέσα στο Neovim:
+    ```vim
+    :TSUpdate
+    ```
+
+### Arch Linux
+
+1.  **Κλωνοποιήστε το Repository:**
+    ```bash
+    git clone https://github.com/HellasDev/Neovim.git ~/.config/nvim
+    ```
+    (Αν υπάρχει ήδη φάκελος `nvim` στο `~/.config/`, μετονομάστε τον πρώτα ή διαγράψτε τον).
 
 2.  **Πρώτη Εκκίνηση του Neovim:**
     Ανοίξτε το Neovim πληκτρολογώντας `nvim` στο τερματικό.
