@@ -39,3 +39,12 @@ api.nvim_create_autocmd("InsertLeave", {
   end,
   desc = "Αυτόματο save όταν βγαίνεις από Insert mode"
 })
+
+-- Format Go files on save
+api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    require("go.format").goimport()
+  end,
+  desc = "Format Go αρχείου κατά την αποθήκευση"
+})

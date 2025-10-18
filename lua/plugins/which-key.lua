@@ -14,6 +14,12 @@ return {
       { "<leader>w", ":w<CR>", desc = "Αποθήκευση" },
       { "<leader>c", group = "Κώδικας" },
       { "<leader>cf", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "Format" },
+      { "<leader>ci", "<cmd>GoImport<CR>", desc = "Go: Εισαγωγή πακέτου" },
+      { "<leader>cb", "<cmd>GoBuild<CR>", desc = "Go: Build" },
+      { "<leader>ct", "<cmd>GoTest<CR>", desc = "Go: Test" },
+      { "<leader>cc", "<cmd>GoCoverage<CR>", desc = "Go: Test Coverage" },
+      { "<leader>ca", function() require("go.alternate").switch(true, "") end, desc = "Go: Εναλλαγή αρχείου" },
+      { "<leader>cv", function() require("go.alternate").switch(true, "vsplit") end, desc = "Go: Εναλλαγή (vsplit)" },
       { "<leader>d", group = "Διάγνωση" },
       { "<leader>w", group = "Χώρος Εργασίας" },
       -- Telescope Search Group
