@@ -5,7 +5,7 @@ return {
   },
   event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
-  build = '<CMD>GoInstallBinaries<CR>',
+  build = ':lua require("go.install").update_all_sync()',
   config = function()
     require("go").setup()
   end,
