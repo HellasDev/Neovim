@@ -2,9 +2,13 @@ return {
   "akinsho/toggleterm.nvim",
   version = "*",
   opts = {
-    shell = "pwsh",
-    persist_mode = true,
+    open_mapping = [[<c-z>]],
     direction = "float",
+    on_open = function(term)
+      if term.direction == "float" and vim.bo.buftype == "" then
+        vim.cmd("tcd " .. vim.fn.expand("%:p:h"))
+      end
+    end,
     float_opts = {
       border = "rounded",
       width = function()

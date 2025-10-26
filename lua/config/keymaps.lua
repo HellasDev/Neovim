@@ -14,8 +14,6 @@ keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Μετακίνηση στο π�
 keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Αύξηση ύψους παραθύρου" })
 keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Μείωση ύψους παραθύρου" })
 
--- Toggle terminal (existing)
-keymap.set({ "n", "t" }, "<C-z>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
 
 -- Bufferline navigation (existing)
 keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Επόμενο Buffer" })

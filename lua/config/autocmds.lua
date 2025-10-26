@@ -33,7 +33,7 @@ api.nvim_create_autocmd("BufReadPost", {
 api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",            -- Ισχύει για όλα τα αρχεία
   callback = function()
-    if vim.bo.modified then -- Μόνο αν υπάρχουν αλλαγές
+    if vim.bo.modified and vim.fn.expand('%') ~= "" then -- Μόνο αν υπάρχουν αλλαγές και το αρχείο έχει όνομα
       vim.cmd("write")
     end
   end,

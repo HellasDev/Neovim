@@ -8,7 +8,7 @@
 *   **Telescope:** Πανίσχυρο "fuzzy finder" για γρήγορη αναζήτηση αρχείων, κειμένου και buffers.
 *   **Tree-sitter:** Ακριβές και λεπτομερές syntax highlighting (αναμένεται εγκατάσταση).
 *   **UI Enhancements:**
-    *   `kanagawa` colorscheme με εναλλαγή `wave`/`lotus`.
+    *   `gruvbox` colorscheme.
     *   `lualine.nvim` για μοντέρνα status bar.
     *   `mini.icons` για εικονίδια αρχείων.
     *   `noice.nvim` για βελτιωμένη εμφάνιση μηνυμάτων και command line.
