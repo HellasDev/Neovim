@@ -18,5 +18,10 @@ return {
         return math.ceil(vim.o.lines * 0.6)
       end,
     },
+    highlights = {
+      FloatBorder = {
+        guifg = "#bf8e2f",
+      },
+    },
   },
 }
