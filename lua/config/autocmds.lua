@@ -48,3 +48,4 @@ api.nvim_create_autocmd("BufWritePre", {
   end,
   desc = "Format Go αρχείου κατά την αποθήκευση"
 })
+

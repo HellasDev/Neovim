@@ -1,3 +1,6 @@
+-- Disable netrw
+vim.g.loaded_netrw = 1
+
 -- For a complete list of options, see `:help option-list`
 
 local opt = vim.opt
@@ -43,3 +46,5 @@ opt.scrolloff = 8 -- Keep 8 lines of context above/below the cursor
 
 -- Completion options
 opt.completeopt = "menu,menuone,noselect"
+
+vim.env.PATH = vim.env.HOME .. "/.npm-global/bin:" .. vim.env.PATH

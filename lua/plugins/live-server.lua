@@ -17,13 +17,11 @@ keys = {
 function()
 local live_server = require("live-server")
 if vim.g.live_server_running then
-vim.cmd("LiveServerStop")
+live_server.stop(vim.fn.expand("%:p:h"))
 vim.g.live_server_running = false
-vim.notify("Live Server σταμάτησε", vim.log.levels.INFO)
 else
-vim.cmd("LiveServerStart")
+live_server.start(vim.fn.expand("%:p:h"))
 vim.g.live_server_running = true
-vim.notify("Live Server ξεκίνησε στο http://localhost:8080", vim.log.levels.INFO)
 end
 end,
 desc = "🌐 Toggle Live Server",

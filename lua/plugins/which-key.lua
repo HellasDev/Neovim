@@ -9,7 +9,6 @@ return {
       },
     })
     wk.add({
-      { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Εξερευνητής" },
       { "<leader>f", group = "Αρχείο" },
       { "<leader>w", ":w<CR>", desc = "Αποθήκευση" },
       { "<leader>c", group = "Κώδικας" },

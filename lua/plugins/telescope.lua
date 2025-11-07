@@ -13,11 +13,27 @@ return {
         return vim.fn.executable("make") == 1
       end,
     },
+    -- Add the file browser dependency
+    { "nvim-telescope/telescope-file-browser.nvim" },
   },
   config = function()
     local telescope = require("telescope")
     telescope.setup({
       -- You can leave this empty to use the default settings, or customize things here
+      extensions = {
+        file_browser = {
+          -- You can configure the file browser here, for example:
+          -- theme = "ivy",
+          hijacks_netrw = true,
+        },
+      },
     })
+    -- Load the extension
+    telescope.load_extension("file_browser")
+
+    -- Add keymap to open the file browser
+    vim.keymap.set("n", "<leader>e", function()
+      telescope.extensions.file_browser.file_browser()
+    end, { desc = "Εξερευνητής Αρχείων" })
   end,
 }

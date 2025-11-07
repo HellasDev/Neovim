@@ -46,6 +46,8 @@ return {
       custom_colors = nil,
       custom_highlights = {
         FloatBorder = { fg = "#bf8e2f" },
+        TelescopeBorder = { link = "FloatBorder" },
+        TelescopePromptBorder = { link = "FloatBorder" },
       },
     })
 
