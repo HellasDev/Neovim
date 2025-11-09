@@ -47,4 +47,15 @@ opt.scrolloff = 8 -- Keep 8 lines of context above/below the cursor
 -- Completion options
 opt.completeopt = "menu,menuone,noselect"
 
-vim.env.PATH = vim.env.HOME .. "/.npm-global/bin:" .. vim.env.PATH
+-- Session options for auto-session
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Go environment variables
+vim.env.GOBIN = vim.env.HOME .. "/go/bin"
+vim.env.PATH = vim.env.PATH .. ":" .. vim.env.GOBIN
+
+-- Lua package path for local luarocks installations
+package.path = package.path .. ";" .. vim.fn.stdpath("data") .. "/luarocks/share/lua/5.1/?.lua"
+
+-- Set jsregexp path for luasnip
+vim.g.luasnip_jsregexp_path = vim.fn.stdpath("data") .. "/luarocks/share/lua/5.1/?.lua"

@@ -33,7 +33,10 @@ return {
 
     -- Add keymap to open the file browser
     vim.keymap.set("n", "<leader>e", function()
-      telescope.extensions.file_browser.file_browser()
-    end, { desc = "Εξερευνητής Αρχείων" })
+      telescope.extensions.file_browser.file_browser({
+        hidden = true,
+        no_ignore = false, -- Εμφανίζει κρυφά αρχεία αλλά σέβεται το .gitignore
+      })
+    end, { desc = "Εξερευνητής Αρχείων (με κρυφά αρχεία)" })
   end,
 }

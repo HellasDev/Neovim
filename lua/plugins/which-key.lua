@@ -45,6 +45,8 @@ return {
       { "<leader>sp", group = "Splits" }, -- New group for splits
       { "<leader>v", ":vsplit<CR>", desc = "Κάθετο Split" },
       { "<leader>h", ":split<CR>", desc = "Οριζόντιος Split" },
+
+      -- Custom user keymaps
     })
   end,
 }

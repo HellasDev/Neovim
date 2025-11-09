@@ -5,15 +5,16 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap
 
 -- Window navigation (existing)
-keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Μετακίνηση στο αριστερό παράθυρο" })
-keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Μετακίνηση στο δεξί παράθυρο" })
-keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Μετακίνηση στο κάτω παράθυρο" })
-keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Μετακίνηση στο πάνω παράθυρο" })
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Μετακίνηση στο αριστερό παράθυρο" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Μετακίνηση στο δεξί παράθυρο" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Μετακίνηση στο πάνω παράθυρο" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Μετακίνηση στο κάτω παράθυρο" })
 
--- Window resizing (existing, C-Left/Right removed)
-keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Αύξηση ύψους παραθύρου" })
-keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Μείωση ύψους παραθύρου" })
-
+-- Window resizing (new)
+keymap.set("n", "<C-S-h>", "<C-w><", { desc = "Μείωση πλάτους παραθύρου" })
+keymap.set("n", "<C-S-l>", "<C-w>>", { desc = "Αύξηση πλάτους παραθύρου" })
+keymap.set("n", "<C-S-k>", "<C-w>+", { desc = "Αύξηση ύψους παραθύρου" })
+keymap.set("n", "<C-S-j>", "<C-w>-", { desc = "Μείωση ύψους παραθύρου" })
 
 -- Bufferline navigation (existing)
 keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Επόμενο Buffer" })

@@ -38,7 +38,7 @@ return {
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-          vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+          -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Removed conflicting keymap
           vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
           vim.keymap.set("n", "<leader>wl", function()
@@ -128,16 +128,28 @@ return {
       "hrsh7th/cmp-path", -- Source for path completions
       "L3MON4D3/LuaSnip", -- Snippet engine
       "saadparwaiz1/cmp_luasnip", -- Snippet source for nvim-cmp
+      "dcampos/cmp-emmet-vim", -- Source for emmet completions
     },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+
+      -- Link the completion menu border to the theme's float border color
+      vim.api.nvim_set_hl(0, "CmpBorder", { link = "FloatBorder" })
 
       cmp.setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
+        },
+        window = {
+          completion = cmp.config.window.bordered({
+            border = "rounded",
+          }),
+          documentation = cmp.config.window.bordered({
+            border = "rounded",
+          }),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -163,13 +175,34 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          -- Make arrow keys always move the cursor, not navigate the menu
+          ["<Up>"] = cmp.mapping(function(fallback)
+            fallback()
+          end, { "i", "s" }),
+          ["<Down>"] = cmp.mapping(function(fallback)
+            fallback()
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
+          { name = "emmet_vim" },
           { name = "buffer" },
           { name = "path" },
         }),
+        formatting = {
+          fields = { "abbr", "menu" },
+          format = function(entry, vim_item)
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
+              emmet_vim = "⚡Βοήθεια⚡",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
       })
     end,
   },

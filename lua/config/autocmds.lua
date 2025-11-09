@@ -49,3 +49,18 @@ api.nvim_create_autocmd("BufWritePre", {
   desc = "Format Go αρχείου κατά την αποθήκευση"
 })
 
+-- Set keymaps for terminal mode
+function _G.set_terminal_keymaps()
+  local opts = { noremap = true, silent = true }
+  -- Map Esc to go to Normal mode
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+end
+
+-- Call the function whenever a terminal is opened
+api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("lua set_terminal_keymaps()")
+  end,
+  desc = "Set keymaps for terminal"
+})
