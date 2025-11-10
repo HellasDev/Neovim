@@ -3,6 +3,17 @@ return {
   event = "VeryLazy",
   config = function()
     local wk = require("which-key")
+
+    _G.ToggleRosePineVariant = function()
+      if vim.o.background == "dark" then
+        vim.cmd("colorscheme rose-pine-dawn")
+        vim.o.background = "light"
+      else
+        vim.cmd("colorscheme rose-pine-main")
+        vim.o.background = "dark"
+      end
+    end
+
     wk.setup({
       win = {
         border = "rounded",
@@ -37,7 +48,7 @@ return {
       { "]g", function() require("gitsigns").next_hunk() end, desc = "Next Hunk" },
       -- Options Group
       { "<leader>o", group = "Επιλογές" },
-      { "<leader>op", _G.KanagawaToggleTheme, desc = "Εναλλαγή Θέματος" },
+      { "<leader>op", _G.ToggleRosePineVariant, desc = "Εναλλαγή Θέματος" },
       -- New Keymaps
       { "<leader>a", group = "Ενέργειες" }, -- New group for general actions
       { "<leader>aa", "ggVG", desc = "Επιλογή Όλων" },
