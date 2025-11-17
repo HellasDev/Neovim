@@ -5,7 +5,7 @@ cmd = { "LiveServerStart", "LiveServerStop" },
 config = function()
 require("live-server").setup({
 port = 8080,
-browser_command = "xdg-open",
+browser_command = "start",
 quiet = false,
 no_css_inject = false,
 install_path = vim.fn.stdpath("data") .. "/live-server/",
