@@ -1,118 +1,76 @@
-# Neovim Configuration
+# Neovim Configuration για Windows
 
-Αυτό το repository περιέχει την προσωπική μου παραμετροποίηση του Neovim για Windows και Arch Linux. Στόχος είναι ένα γρήγορο, μοντέρνο και πλήρως λειτουργικό IDE για web development και Go, με έμφαση στην παραγωγικότητα και την ευκολία χρήσης.
+Αυτό το repository περιέχει την προσωπική μου παραμετροποίηση του Neovim, βελτιστοποιημένη για Windows. Στόχος είναι ένα γρήγορο, μοντέρνο και πλήρως λειτουργικό IDE για web development και Go, με έμφαση στην παραγωγικότητα και την ευκολία χρήσης.
 
 ## Βασικά Χαρακτηριστικά
 
-*   **LSP (Language Server Protocol):** Πλήρης υποστήριξη για auto-completion, diagnostics, go-to-definition, κ.λπ. για JavaScript, TypeScript, HTML, CSS, JSON, Go και Lua. Περιλαμβάνει προχωρημένες ρυθμίσεις για `gopls`.
+*   **LSP (Language Server Protocol):** Πλήρης υποστήριξη για auto-completion, diagnostics, go-to-definition, κ.λπ. για JavaScript, TypeScript, HTML, CSS, JSON, Go και Lua.
 *   **Telescope:** Πανίσχυρο "fuzzy finder" για γρήγορη αναζήτηση αρχείων, κειμένου και buffers.
-*   **Tree-sitter:** Ακριβές και λεπτομερές syntax highlighting (αναμένεται εγκατάσταση).
+*   **Tree-sitter:** Ακριβές και λεπτομερές syntax highlighting.
 *   **UI Enhancements:**
     *   `gruvbox` colorscheme.
     *   `lualine.nvim` για μοντέρνα status bar.
     *   `mini.icons` για εικονίδια αρχείων.
     *   `noice.nvim` για βελτιωμένη εμφάνιση μηνυμάτων και command line.
-    *   `which-key.nvim` για διαδραστικό μενού συντομεύσεων στα Ελληνικά, με στρογγυλεμένο περίγραμμα.
-    *   `neo-tree.nvim` ως file explorer με Git status, εμφάνιση κρυφών αρχείων και diagnostics.
+    *   `which-key.nvim` για διαδραστικό μενού συντομεύσεων στα Ελληνικά.
+    *   `neo-tree.nvim` ως file explorer.
     *   `hlchunk.nvim` για οπτική επισήμανση μπλοκ κώδικα.
-    *   `nvim-colorizer.lua` για εμφάνιση χρωμάτων απευθείας στον κώδικα.
-    *   `render-markdown.nvim` για όμορφο rendering αρχείων Markdown.
-*   **Terminal:** Ενσωματωμένο αιωρούμενο terminal (`toggleterm.nvim`) με PowerShell, στρογγυλεμένο περίγραμμα, μέγεθος 50% και `persist_mode = true`.
-*   **Formatting:** Ενσωματωμένο code formatting με `conform.nvim` (αυτόματο format on save, απαιτεί εξωτερικούς formatters όπως Prettier, Stylua, Gofumpt).
-*   **Git Integration:** `gitsigns.nvim` για οπτικές ενδείξεις Git στο gutter και διαχείριση hunks.
+    *   `nvim-colorizer.lua` για εμφάνιση χρωμάτων.
+    *   `render-markdown.nvim` για rendering αρχείων Markdown.
+*   **Terminal:** Ενσωματωμένο αιωρούμενο terminal (`toggleterm.nvim`).
+*   **Formatting:** Αυτόματο code formatting on save με `conform.nvim`.
+*   **Git Integration:** `gitsigns.nvim` για οπτικές ενδείξεις Git.
 *   **Session Management:** Αυτόματη αποθήκευση/επαναφορά συνεδριών με `auto-session`.
 *   **Persistent Undo:** Αποθήκευση ιστορικού αλλαγών.
 *   **Ελληνικές Περιγραφές:** Όλες οι συντομεύσεις στο `which-key` είναι στα Ελληνικά.
 
-## Απαιτούμενες Εξαρτήσεις (Εκτός Neovim)
+## Απαιτούμενες Εξαρτήσεις
 
-### Windows
+Πριν την εγκατάσταση, βεβαιωθείτε ότι έχετε εγκαταστήσει τα παρακάτω εργαλεία χρησιμοποιώντας `winget` σε ένα PowerShell terminal με δικαιώματα διαχειριστή.
 
-Πριν κλωνοποιήσετε αυτό το repository, βεβαιωθείτε ότι έχετε εγκαταστήσει τα παρακάτω στο σύστημά σας:
+**Εκτελέστε την παρακάτω εντολή για να εγκαταστήσετε όλα τα απαραίτητα εργαλεία:**
 
-*   **Git for Windows:** Απαραίτητο για τη διαχείριση του κώδικα και των plugins.
-    *   [Download Git](https://git-scm.com/download/win)
-*   **Node.js & npm:** Απαιτείται για το Mason (διαχείριση LSP servers/formatters) και ορισμένα plugins (π.χ. `live-server`).
-    *   [Download Node.js](https://nodejs.org/en/download/)
-*   **C Compiler (MinGW/WinLibs):** Απαραίτητο για το Tree-sitter και ορισμένα plugins (π.χ. `telescope-fzf-native`).
-    *   Εκτελέστε την εντολή στο PowerShell/CMD:
-        ```powershell
-        winget install --id=BrechtSanders.WinLibs.POSIX.UCRT -e
-        ```
-*   **fzf:** Ένα γρήγορο εργαλείο "fuzzy finding" που χρησιμοποιεί το Telescope.
-    *   [Download fzf](https://github.com/junegunn/fzf/releases/latest) (Κατεβάστε το `fzf-..._windows_amd64.zip`, αποσυμπιέστε το και βάλτε το `fzf.exe` σε ένα φάκελο που είναι στο PATH σας).
-*   **ripgrep (rg):** Ένα πολύ γρήγορο εργαλείο αναζήτησης κειμένου που χρησιμοποιεί το Telescope.
-    *   [Download ripgrep](https://github.com/BurntSushi/ripgrep/releases/latest) (Κατεβάστε το `...pc-windows-msvc.zip`, αποσυμπιέστε το και βάλτε το `rg.exe` σε ένα φάκελο που είναι στο PATH σας).
-*   **Nerd Font:** Για να εμφανίζονται σωστά τα εικονίδια.
-    *   [Download Nerd Fonts](https://www.nerdfonts.com/font-downloads) (Προτείνεται η JetBrains Mono Nerd Font). Μετά την εγκατάσταση, ρυθμίστε το τερματικό σας (π.χ. Windows Terminal) να τη χρησιμοποιεί.
-
-### Arch Linux
-
-Εγκαταστήστε τις απαραίτητες εξαρτήσεις μέσω του `pacman` και `yay`/`paru`:
-
-```bash
-# Βασικά πακέτα
-sudo pacman -S git neovim nodejs npm gcc fzf ripgrep
-
-# Nerd Font (JetBrains Mono)
-yay -S ttf-jetbrains-mono-nerd
-# ή
-paru -S ttf-jetbrains-mono-nerd
+```powershell
+winget install --id Git.Git -e && winget install --id OpenJS.NodeJS -e && winget install --id GoLang.Go -e && winget install --id BrechtSanders.WinLibs.POSIX.UCRT -e && winget install --id BurntSushi.ripgrep.MSVC -e && winget install --id junegunn.fzf -e && winget install --id sharkdp.fd -e && winget install --id JesseDuffield.lazygit -e
 ```
 
-**Σημείωση:** Μετά την εγκατάσταση του Nerd Font, ρυθμίστε το τερματικό σας (π.χ. Alacritty, Kitty, GNOME Terminal) να χρησιμοποιεί το `JetBrainsMono Nerd Font`.
+**Λίστα Εργαλείων:**
+*   **Git:** Απαραίτητο για τη διαχείριση των plugins.
+*   **Node.js & npm:** Απαιτείται για τους περισσότερους LSP servers και formatters.
+*   **Go:** Απαραίτητο για την ανάπτυξη σε Go.
+*   **C Compiler (MinGW/WinLibs):** Απαραίτητο για το `nvim-treesitter` για την μεταγλώττιση των parsers.
+*   **Ripgrep (rg):** Γρήγορη αναζήτηση κειμένου για το Telescope.
+*   **fzf:** Fuzzy finder που χρησιμοποιείται από το Telescope.
+*   **fd:** Γρήγορη αναζήτηση αρχείων για το Telescope.
+*   **lazygit:** (Προαιρετικό αλλά συνιστάται) Ένα εξαιρετικό TUI για το Git.
 
-## Εγκατάσταση της Παραμετροποίησης
+### Nerd Font
+Για να εμφανίζονται σωστά τα εικονίδια στο `lualine` και το `neo-tree`, πρέπει να εγκαταστήσετε ένα Nerd Font.
 
-### Windows
+1.  Κατεβάστε ένα Nerd Font της αρεσκείας σας (π.χ., [JetBrains Mono Nerd Font](https://www.nerdfonts.com/font-downloads)).
+2.  Εγκαταστήστε το font στα Windows (δεξί κλικ -> Install).
+3.  Ρυθμίστε το τερματικό σας (π.χ., Windows Terminal) να χρησιμοποιεί αυτό το font.
+
+## Εγκατάσταση
 
 1.  **Κλωνοποιήστε το Repository:**
+    Ανοίξτε ένα PowerShell terminal και εκτελέστε:
     ```powershell
     git clone https://github.com/HellasDev/Neovim.git $env:LOCALAPPDATA\nvim
     ```
-    (Αν υπάρχει ήδη φάκελος `nvim` στο `%LOCALAPPDATA%`, μετονομάστε τον πρώτα).
+    *(Αν ο φάκελος `$env:LOCALAPPDATA\nvim` υπάρχει ήδη, μετονομάστε τον πρώτα).*
 
 2.  **Πρώτη Εκκίνηση του Neovim:**
-    Ανοίξτε το Neovim πληκτρολογώντας `nvim` στο τερματικό.
-    *   Το `lazy.nvim` θα ξεκινήσει αυτόματα την εγκατάσταση όλων των plugins. Αυτό θα πάρει λίγο χρόνο.
-    *   Το `Mason` θα εγκαταστήσει αυτόματα τους Language Servers και τους formatters που έχουμε ορίσει.
-    *   Το `nvim-treesitter` θα κατεβάσει και θα κάνει compile τους parsers.
+    Απλά ανοίξτε το Neovim πληκτρολογώντας `nvim` στο terminal.
+    *   Το `lazy.nvim` (ο διαχειριστής πακέτων) θα ξεκινήσει αυτόματα και θα εγκαταστήσει όλα τα plugins.
+    *   Μετά την εγκατάσταση των plugins, το `Mason` θα εγκαταστήσει αυτόματα τους απαραίτητους Language Servers (`gopls`, `tsserver`, `cssls`, κ.λπ.) και Formatters (`prettier`, `stylua`, `gofumpt`).
+    *   Το `nvim-treesitter` θα κατεβάσει και θα μεταγλωττίσει τους parsers για το syntax highlighting.
 
-3.  **Εγκατάσταση Formatters (μέσω Mason):**
-    Για να λειτουργήσει το format on save, βεβαιωθείτε ότι έχετε εγκαταστήσει τους formatters για τις γλώσσες σας:
-    *   Ανοίξτε το Neovim και εκτελέστε `:Mason`.
-    *   Βρείτε και εγκαταστήστε `prettier` (για web), `stylua` (για Lua), `gofumpt` (για Go).
+    Η διαδικασία αυτή μπορεί να διαρκέσει μερικά λεπτά. Απλά περιμένετε να ολοκληρωθεί.
 
-4.  **Ενημέρωση Parsers (μέσω Neovim):**
-    Αν θέλετε να ενημερώσετε τους parsers του Tree-sitter, εκτελέστε μέσα στο Neovim:
-    ```vim
-    :TSUpdate
-    ```
-
-### Arch Linux
-
-1.  **Κλωνοποιήστε το Repository:**
-    ```bash
-    git clone https://github.com/HellasDev/Neovim.git ~/.config/nvim
-    ```
-    (Αν υπάρχει ήδη φάκελος `nvim` στο `~/.config/`, μετονομάστε τον πρώτα ή διαγράψτε τον).
-
-2.  **Πρώτη Εκκίνηση του Neovim:**
-    Ανοίξτε το Neovim πληκτρολογώντας `nvim` στο τερματικό.
-    *   Το `lazy.nvim` θα ξεκινήσει αυτόματα την εγκατάσταση όλων των plugins. Αυτό θα πάρει λίγο χρόνο.
-    *   Το `Mason` θα εγκαταστήσει αυτόματα τους Language Servers και τους formatters που έχουμε ορίσει.
-    *   Το `nvim-treesitter` θα κατεβάσει και θα κάνει compile τους parsers.
-
-3.  **Εγκατάσταση Formatters (μέσω Mason):**
-    Για να λειτουργήσει το format on save, βεβαιωθείτε ότι έχετε εγκαταστήσει τους formatters για τις γλώσσες σας:
-    *   Ανοίξτε το Neovim και εκτελέστε `:Mason`.
-    *   Βρείτε και εγκαταστήστε `prettier` (για web), `stylua` (για Lua), `gofumpt` (για Go).
-
-4.  **Ενημέρωση Parsers (μέσω Neovim):**
-    Αν θέλετε να ενημερώσετε τους parsers του Tree-sitter, εκτελέστε μέσα στο Neovim:
-    ```vim
-    :TSUpdate
-    ```
+3.  **Επαλήθευση Εγκατάστασης:**
+    *   Εκτελέστε `:checkhealth` μέσα στο Neovim για να δείτε αν υπάρχουν προβλήματα. Δώστε ιδιαίτερη προσοχή στα `nvim-treesitter` και `mason`.
+    *   Ανοίξτε ένα αρχείο Go, TypeScript ή Lua για να βεβαιωθείτε ότι το LSP και το formatting λειτουργούν κανονικά.
 
 ## Βασικές Συντομεύσεις (Keymaps)
 
