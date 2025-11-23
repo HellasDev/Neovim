@@ -1,10 +1,3 @@
-# <picture>
-
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-light.png">
-  <img alt="Modern Neovim Config Banner" src="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-light.png">
-</picture>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Neovim-0.10+-57A143?logo=neovim&logoColor=white&style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Windows-10/11-0078D6?logo=windows&logoColor=white&style=for-the-badge"/>
