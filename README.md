@@ -1,64 +1,99 @@
 ---
 
-# 🌟 Modern Neovim Configuration (Windows Edition)
+# <picture>
 
-Μια σύγχρονη και πλήρως βελτιστοποιημένη παραμετροποίηση για **Neovim σε Windows 10/11**, σχεδιασμένη ειδικά για developers που δουλεύουν σε **Go**, **web technologies** (HTML, CSS, JS, TS) και αναζητούν ένα σταθερό, παραγωγικό και όμορφο περιβάλλον.
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-light.png">
+  <img alt="Modern Neovim Config Banner" src="https://raw.githubusercontent.com/TheShaicho/assets/main/nvim-banner-light.png">
+</picture>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Neovim-0.10+-57A143?logo=neovim&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Windows-10/11-0078D6?logo=windows&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PowerShell-7+-5391FE?logo=powershell&logoColor=white&style=for-the-badge"/>
+</p>
 
 ---
 
-## ✨ Χαρακτηριστικά
+# 🅽🅴🅾🆅🅸🅼  🅲🅾🅽🅵🅸🅶
+
+```
+ _   _                 _           
+| \ | | ___  _____   _(_)_ __ ___  
+|  \| |/ _ \/ _ \ \ / / | '_ ` _ \ 
+| |\  |  __/ (_) \ V /| | | | | | |
+|_| \_|\___|\___/ \_/ |_|_| |_| |_|
+      Modern Windows Configuration
+```
+
+---
+
+# 🌟 Modern Neovim Configuration (Windows Edition)
+
+Μια σύγχρονη, μοντέρνα και πλήρως βελτιστοποιημένη παραμετροποίηση για **Neovim στα Windows 10/11**, σχεδιασμένη ειδικά για developers που γράφουν **Go**, **TypeScript**, **HTML/CSS**, καθώς και γενικό web backend/frontend κώδικα.
+
+---
+
+# 🎬 Installation Walkthrough (GIFs)
+
+> **🎥 Τα GIFs είναι placeholders.**
+> Πες μου αν θες να σου φτιάξω εγώ custom GIFs από το δικό σου setup.
+
+| Περιγραφή                                    | GIF                                                                                                      |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Πρώτη εκκίνηση Neovim με εγκατάσταση plugins | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/nvim-install.gif" width="600"/>  |
+| Ρύθμιση Nerd Font & Windows Terminal         | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/terminal-font.gif" width="600"/> |
+| Mason που εγκαθιστά LSP servers              | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/mason-lsp.gif" width="600"/>     |
+
+---
+
+# ✨ Χαρακτηριστικά
 
 ### 🎨 Μοντέρνα Εμφάνιση
 
-* Minimal UI με **lualine**, **bufferline**
-* Πλήρης υποστήριξη **Nerd Fonts**
+* Minimal theme & icons
+* Lualine, bufferline, treesitter
+* Πλήρης υποστήριξη Nerd Fonts
 
 ### 💻 PowerShell Integration
 
-* Εκκίνηση **PowerShell 7** μέσα από το Neovim
-* Ρυθμίσεις για σωστή κωδικοποίηση UTF-8
-* Βελτιώσεις για Windows path handling
+* PowerShell 7 ως default shell
+* UTF-8 encoding
+* Fixes για Windows path handling
 
-### 🚀 Γρήγορη Πλοήγηση
+### 🔍 Ταχύτατη Πλοήγηση
 
-* Fuzzy search με **telescope.nvim**
-* Απαιτεί **ripgrep** για πλήρη λειτουργικότητα
+* Telescope fuzzy search
+* Ripgrep backend
+* Project-wide search σε ms
 
-### 🧠 Έξυπνη Επεξεργασία Κώδικα
+### 🧠 Productivity Tools
 
-* Autocompletion μέσω **nvim-cmp**
-* LSP υποστήριξη για:
-
-  * Go (**gopls**)
-  * TypeScript / JavaScript (tsserver)
-  * HTML
-  * CSS
-  * κ.α.
-* Αυτόματη εγκατάσταση εργαλείων με **mason.nvim**
+* nvim-cmp completion
+* Go, TS, HTML, CSS, JSON LSP servers
+* Mason για automatic installation
+* Treesitter optimized parsers
 
 ### 🪟 Windows Fixes
 
-* Υποστήριξη σε paths με κενά
-* Date/time formatting στα Ελληνικά
-* Βελτιωμένο session management
+* Paths with spaces
+* Greek locale datetime
+* Smarter session persistence
+* Powershell terminal patches
 
-### 🧰 Smart Terminal
+### 🧰 Smart Terminal Mode
 
-* Ενσωματωμένο floating terminal
-* Smart toggle με **Ctrl + z**
-* Auto-clear κατά την έξοδο
-
----
-
-## ⚙️ Προαπαιτούμενα
-
-Πριν ξεκινήσεις, βεβαιώσου ότι έχεις τα εξής:
+* Floating terminal (Ctrl + z)
+* Auto-clear on exit
+* Shell aware cwd switching
 
 ---
 
-### 1️⃣ Windows Terminal & PowerShell 7
+# ⚙️ Προαπαιτούμενα
 
-Για την καλύτερη εμπειρία:
+## 1️⃣ Windows Terminal & PowerShell 7
 
 ```powershell
 winget install Microsoft.WindowsTerminal
@@ -67,45 +102,45 @@ winget install Microsoft.PowerShell
 
 ---
 
-### 2️⃣ Nerd Font (Απαραίτητο για εικονίδια)
+## 2️⃣ Nerd Font
 
-1. Κατέβασε μια Nerd Font (προτείνεται: **JetBrainsMono Nerd Font**) από
-   [https://www.nerdfonts.com](https://www.nerdfonts.com)
-2. Κάνε εγκατάσταση όλων των `.ttf` αρχείων
-3. Ρύθμισε την στο Windows Terminal:
-   *Settings → Appearance → Font Face → JetBrainsMono NF*
+1. Κατέβασε JetBrainsMono NF
+2. Εγκατάστησε όλα τα `.ttf`
+3. Ρύθμισε το Windows Terminal:
+   *Settings → Appearance → Font Face*
 
 ---
 
-### 3️⃣ Εργαλεία Ανάπτυξης (Dependencies)
-
-Άνοιξε PowerShell **ως Administrator**:
+## 3️⃣ Developer Tools
 
 ```powershell
 # Git
 winget install Git.Git
 
-# Ripgrep (για Telescope)
+# Ripgrep
 winget install BurntSushi.ripgrep.MSVC
 
 # Go
 winget install GoLang.Go
 
-# Node.js (για LSPs, Mason, Prettier)
+# Node.js
 winget install OpenJS.NodeJS
 
-# WinLibs (GCC/Make για plugins)
+# WinLibs (gcc/make)
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT
 
-# FZF (optional αλλά χρήσιμο)
+# GnuWin32 Make
+winget install GnuWin32.Make
+
+# FZF (optional)
 winget install --id junegunn.fzf
 ```
 
 ---
 
-## 🚀 Εγκατάσταση
+# 🚀 Εγκατάσταση
 
-### 1️⃣ Backup παλιών ρυθμίσεων (προαιρετικό)
+## 1️⃣ Backup παλιών ρυθμίσεων
 
 ```powershell
 Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak -ErrorAction SilentlyContinue
@@ -114,9 +149,7 @@ Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak -ErrorActi
 
 ---
 
-### 2️⃣ Κατέβασε το Repo
-
-Τοποθέτησε το config στον φάκελο του Neovim:
+## 2️⃣ Clone του repository
 
 ```powershell
 git clone https://github.com/TheShaicho/nvim.git $env:LOCALAPPDATA\nvim
@@ -124,16 +157,16 @@ git clone https://github.com/TheShaicho/nvim.git $env:LOCALAPPDATA\nvim
 
 ---
 
-### 3️⃣ Εκκίνηση
-
-Άνοιξε το Neovim:
+## 3️⃣ Πρώτη εκκίνηση
 
 ```powershell
 nvim
 ```
 
-1. Την πρώτη φορά, ο **Lazy.nvim** θα εγκαταστήσει όλα τα plugins
-2. Κλείσε και ξανά-άνοιξε το Neovim
-3. Το **Mason** θα εγκαταστήσει αυτόματα όλους τους LSP servers (π.χ. gopls, tsserver κλπ.)
+* Lazy.nvim → εγκατάσταση plugins
+* Κλείσε & άνοιξε ξανά
+* Mason → αυτόματη εγκατάσταση LSP servers
 
 ---
+
+Πες μου τι θέλεις και το ολοκληρώνω.
