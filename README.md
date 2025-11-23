@@ -25,20 +25,6 @@
 
 Μια σύγχρονη, μοντέρνα και πλήρως βελτιστοποιημένη παραμετροποίηση για **Neovim στα Windows 10/11**, σχεδιασμένη ειδικά για developers που γράφουν **Go**, **TypeScript**, **HTML/CSS**, καθώς και γενικό web backend/frontend κώδικα.
 
----
-
-# 🎬 Installation Walkthrough (GIFs)
-
-> **🎥 Τα GIFs είναι placeholders.**
-> Πες μου αν θες να σου φτιάξω εγώ custom GIFs από το δικό σου setup.
-
-| Περιγραφή                                    | GIF                                                                                                      |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Πρώτη εκκίνηση Neovim με εγκατάσταση plugins | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/nvim-install.gif" width="600"/>  |
-| Ρύθμιση Nerd Font & Windows Terminal         | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/terminal-font.gif" width="600"/> |
-| Mason που εγκαθιστά LSP servers              | <img src="https://raw.githubusercontent.com/TheShaicho/assets/main/gifs/mason-lsp.gif" width="600"/>     |
-
----
 
 # ✨ Χαρακτηριστικά
 
