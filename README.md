@@ -1,5 +1,3 @@
-Παρακάτω σου δίνω **έτοιμο, όμορφο και καθαρό README.md**, πλήρως μορφοποιημένο για GitHub. Είναι plug-and-play — κάνε copy-paste στο repo σου και είσαι έτοιμος.
-
 ---
 
 # 🌟 Modern Neovim Configuration (Windows Edition)
@@ -139,29 +137,3 @@ nvim
 3. Το **Mason** θα εγκαταστήσει αυτόματα όλους τους LSP servers (π.χ. gopls, tsserver κλπ.)
 
 ---
-
-## 📸 Screenshots (Προαιρετικό)
-
-*Πρόσθεσε εικόνες από το setup σου εδώ για καλύτερο showcase.*
-
----
-
-## 🤝 Συνεισφορά
-
-Ένα PR ή Issue είναι πάντα καλοδεχούμενο!
-
----
-
-## 📜 Άδεια
-
-MIT License — ελευθερία χρήσης και τροποποίησης.
-
----
-
-Αν θέλεις, μπορώ:
-
-* να σου φτιάξω **badge section** (Go, Neovim, Windows κ.λπ.)
-* να προσθέσω **installation GIFs**,
-* να μετατρέψω το README σε **dark/light theme** style όπως σε μεγάλα repos.
-
-Πες μου τι θες!
